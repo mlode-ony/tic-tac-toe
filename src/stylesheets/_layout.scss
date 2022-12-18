@@ -1,0 +1,41 @@
+#root {
+  display: flex;
+  @include align;
+  @include container-size;
+}
+
+.app__container {
+  display: grid;
+
+  grid: {
+    template: {
+      columns: $grid-size;
+      rows: $grid-size;
+      areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+    }
+  }
+
+  @include align;
+  // @include container-size; 
+  width: 80vw;
+  height: 100vh;
+}
+
+$elements: header, main, footer;
+
+@each $element in $elements {
+  .app__#{$element} {
+    grid-area: $element;
+    @include flex;
+    @include align;
+    @include container-size;
+  }
+}
+
+h1 {
+  font-size: 1.5vw; 
+  font-weight: 500;
+}

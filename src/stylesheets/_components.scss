@@ -1,0 +1,27 @@
+.game__container {
+    @include flex;
+    @include align;
+    @include container-size;
+}
+
+.game__board {
+    display: grid;
+
+    grid: {
+        auto-flow: row;
+        template-columns: repeat(3, 1fr);
+        template-rows: repeat(3, 1fr);
+    }
+
+    gap: 10px 10px;
+    @include container-size;
+
+    &--row {
+        @include container-size;
+    }
+}
+
+.game__square {
+    @include container-size;
+    box-shadow: $box-shadow;
+}
